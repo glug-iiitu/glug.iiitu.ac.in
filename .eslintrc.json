@@ -57,7 +57,6 @@
     "eol-last": ["error", "unix"],
     "func-names": 0,
     "func-call-spacing": ["error", "never"],
-    "function-paren-newline": ["error", "consistent"],
     "indent": [
       "error",
       2,

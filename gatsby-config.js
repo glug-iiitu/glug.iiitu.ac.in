@@ -4,10 +4,9 @@ module.exports = {
     title: 'GLUG IIITU',
     author: 'Shivam Tripathi',
     description: 'Official site for GNU/Linux user group IIIT Una',
-    siteUrl: '',
+    siteUrl: 'https://glug.iiitu.ac.in',
     social: {
-      twitter: 'https://twitter.com/iiituna',
-      github: 'https://github.com/iiituna',
+      github: 'https://github.com/glug-iiitu',
     },
   },
   plugins: [
