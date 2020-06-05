@@ -14,3 +14,5 @@ yarn start
 ```
 
 More commands in package.json
+
+Commit messages must adhere to [conventional commit ](https://www.conventionalcommits.org/en/v1.0.0/) style.
