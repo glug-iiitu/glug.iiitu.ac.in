@@ -10,7 +10,7 @@ yarn install
 ### Run the project
 
 ```
-npm start
+yarn start
 ```
 
 More commands in package.json
