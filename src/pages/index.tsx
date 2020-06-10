@@ -1,5 +1,11 @@
 import React from 'react';
+import Hero from '../components/Hero';
+import Layout from '../components/Layout';
 
 export default function Home(): JSX.Element {
-  return <div>Hello world!</div>;
+  return (
+    <Layout>
+      <Hero />
+    </Layout>
+  );
 }
