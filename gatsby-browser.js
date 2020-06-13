@@ -1,7 +1,11 @@
-/* eslint-disabled */
-import MDXProvider from '@mdx-js/react';
-import preToCodeBlock from 'mdx-utils';
+/* eslint react/prop-types: 0 */
+/* eslint react/display-name: 0  */
+import {MDXProvider} from '@mdx-js/react';
+import {preToCodeBlock} from 'mdx-utils';
+import React from 'react';
 import './language-tabs.css';
+import Code from './src/components/Code';
+
 // components is its own object outside of render so that the references to
 // components are stable
 const components = {
@@ -10,11 +14,11 @@ const components = {
     // if there's a codeString and some props, we passed the test
     if (props) {
       return <Code {...props} />;
-    } else {
-      // it's possible to have a pre without a code in it
-      return <pre {...preProps} />;
     }
+    // it's possible to have a pre without a code in it
+    return <pre {...preProps} />;
   },
+  wrapper: ({children}) => <>{children}</>,
 };
 export const wrapRootElement = ({element}) => (
   <MDXProvider components={components}>{element}</MDXProvider>
