@@ -1,13 +1,14 @@
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
+import Img, {FluidObject} from 'gatsby-image';
+import {MDXRenderer} from 'gatsby-plugin-mdx';
 import React, {ReactElement} from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 
 interface Props {
   data: {
-    markdownRemark: {
-      html: string;
+    mdx: {
+      body: string;
       timeToRead: string;
       frontmatter: {
         title: string;
@@ -16,14 +17,7 @@ interface Props {
         tags: [string];
         banner: {
           childImageSharp: {
-            fluid: {
-              base64: string;
-              traced: string;
-              srcWebp: string;
-              srcSetWebp: string;
-              originalImg: string;
-              originalName: string;
-            };
+            fluid: FluidObject | FluidObject[];
           };
         };
       };
@@ -36,9 +30,8 @@ const BlogPost = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    max-width: 70vw;
-    margin-left: 15vw;
+    width: 70%;
+    margin-left: 15%;
   }
   h1,
   h2 {
@@ -61,13 +54,14 @@ const BlogPost = styled.main`
 
 export default function Template(props: Props): ReactElement {
   const data = props.data;
-  const {frontmatter, html, timeToRead} = data.markdownRemark;
+  const {frontmatter, body, timeToRead} = data.mdx;
   console.log(frontmatter.tags);
   return (
     <Layout>
       <BlogPost>
         <div className="blog-post">
           <div className="info">
+            {/* eslint-disable */}
             <Img
               fluid={frontmatter.banner.childImageSharp.fluid}
               alt="feautured-image"
@@ -91,7 +85,8 @@ export default function Template(props: Props): ReactElement {
               ))}
             </small>
           </div>
-          <div className="blog-post-content" dangerouslySetInnerHTML={{__html: html}} />
+          <MDXRenderer>{body}</MDXRenderer>
+          {/* <div className="blog-post-content" dangerouslySetInnerHTML={{__html: html}} /> */}
         </div>
       </BlogPost>
     </Layout>
@@ -100,8 +95,8 @@ export default function Template(props: Props): ReactElement {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: {slug: {eq: $slug}}) {
-      html
+    mdx(frontmatter: {slug: {eq: $slug}}) {
+      body
       timeToRead
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

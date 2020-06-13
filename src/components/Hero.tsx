@@ -52,7 +52,7 @@ export default function Hero(): ReactElement {
           of open source but also how to sharpen your skills as a software developer leveraging
           FOSS.
           <br />
-          You can begin by browing through out <Link to="/blog">articles</Link>.
+          You can begin by browing through out <Link to="/wiki">articles</Link>.
         </p>
       </div>
       <div className="info">

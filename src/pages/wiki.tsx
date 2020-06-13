@@ -6,7 +6,7 @@ import Button from '../components/shared/Button';
 
 interface Props {
   data: {
-    allMarkdownRemark: {
+    allMdx: {
       edges: [
         {
           node: {
@@ -53,7 +53,7 @@ const PostBox = styled.section`
 `;
 
 export default function wiki({data}: Props): ReactElement {
-  const {edges} = data.allMarkdownRemark;
+  const {edges} = data.allMdx;
   const posts = edges.map((edge, i) => {
     const {slug, title} = edge.node.frontmatter;
     const {excerpt} = edge.node;
@@ -88,7 +88,7 @@ export default function wiki({data}: Props): ReactElement {
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+    allMdx(sort: {order: DESC, fields: [frontmatter___date]}) {
       edges {
         node {
           id
