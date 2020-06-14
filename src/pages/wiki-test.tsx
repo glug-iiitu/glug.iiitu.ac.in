@@ -22,7 +22,7 @@ interface Props {
   };
 }
 
-const PostBox = styled.section`
+export const PostBox = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
