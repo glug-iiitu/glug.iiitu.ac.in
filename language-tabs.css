@@ -23,7 +23,7 @@
   right: 1rem;
   text-align: right;
   text-transform: uppercase;
-  top: 0;
+  top: 13px;
 }
 .gatsby-highlight pre[class~='language-javascript']::before {
   content: 'js';

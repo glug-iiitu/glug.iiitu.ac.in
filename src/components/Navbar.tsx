@@ -40,7 +40,7 @@ const Nav = styled.nav`
     }
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 850px) {
     flex-direction: column;
   }
 `;

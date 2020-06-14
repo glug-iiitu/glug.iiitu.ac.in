@@ -31,6 +31,7 @@ const BlogPost = styled.main`
     flex-direction: column;
     justify-content: center;
     width: 70%;
+    margin-top: 0;
     margin-left: 15%;
   }
   h1,
@@ -45,9 +46,18 @@ const BlogPost = styled.main`
     padding: 12px;
   }
 
-  @media (max-width: 450px) {
+  .featured-image {
+    height: 35vh;
+  }
+
+  @media (max-width: 550px) {
     .blog-post {
-      margin-left: 10vw;
+      width: 85vw;
+      margin: auto;
+    }
+
+    .featured-image {
+      display: none;
     }
   }
 `;
@@ -65,9 +75,7 @@ export default function Template(props: Props): ReactElement {
             <Img
               fluid={frontmatter.banner.childImageSharp.fluid}
               alt="feautured-image"
-              style={{
-                height: '40vh',
-              }}
+              className="featured-image"
             />
             <h1>{frontmatter.title}</h1>
             <h2>{frontmatter.date}</h2>
